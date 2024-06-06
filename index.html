@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GENESIS ECOGROUP</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/b157462c2e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+    <div class="header-text">
+        <p><i>Inspired by nature, Designed for you</i></p>
+        <h3>Welcome to Genesis EcoGroup, <br>where nature meets artistry in every landscape. Our passion for crafting breathtaking
+            outdoor spaces drives us to exceed your expectations and transform your visions into stunning realities. With a keen eye for detail and a commitment to quality, we specialize in creating bespoke landscapes that reflect 
+            your unique style and enhance the beauty of your surroundings.</h3>
+    </div>
+    </div>
+</div>
+
+
+
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">Services</h1>
+        <div class="services-list">
+        <div>
+            <h2>Lawn Maintenance</h2>
+            <p>Mowing, edging, trimming, fertilizing, aerating, 
+            overseeding, weed control, and pest management to keep lawns healthy and vibrant.</p>
+        </div>
+        <div>
+            <h2>Garden Design</h2>
+            <p>Aesthetically pleasing and functional garden layouts, selecting and planting trees, shrubs, flowers, and other vegetation, and installing features 
+                like pathways, retaining walls, and garden beds.</p>
+        </div>
+        <div>
+            <h2>Irrigation Systems</h2>
+            <p>Designing and installing efficient irrigation systems to ensure proper water distribution to plants, as well as regular 
+                maintenance and repairs to optimize system performance.</p>
+        </div>
+        <div>
+            <h2>Seasonal Cleanup</h2>
+            <p>Clearing debris, fallen leaves, and dead vegetation.</p>
+        </div>
+        <div>
+            <h2>Hardscape Construction</h2>
+            <p>Building structures such as patios, decks, pathways, and retaining walls to enhance 
+                the functionality and visual appeal of outdoor spaces.</p>
+        </div>
+        <div>
+            <h2>Tree Maintenance</h2>
+            <p>Pruning, trimming, and shaping trees to promote healthy growth and prevent hazards, as well as 
+                tree removal and stump grinding services when necessary.</p>
+        </div>     
+        </div>
+    </div>
+</div>
+
+
+
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">Our Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work1.png">
+                </div>
+            <div class="work">
+                <img src="images/work2.png">
+            </div>
+            <div class="work">
+                <img src="images/work8.png">
+            </div>
+            <div class="work">
+                <img src="images/work4.png">
+            </div>
+            <div class="work">
+                <img src="images/work6.png">
+            </div>
+            <div class="work">
+                <img src="images/work5.png">
+            </div>
+            <div class="work">
+                <img src="images/work10.png">
+            </div>
+            <div class="work">
+                <img src="images/work11.png">
+            </div>
+            <div class="work">
+                <img src="images/work7.png">
+            </div>
+        </div>
+        <a href="https://www.instagram.com/genesisecogroup/?hl=en" class="btn2">See More</a>
+    </div>
+
+</div>
+        
+
+
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Us</h1>
+                <p><i class="fas fa-paper-plane"></i> genesisecogroup@gmail.com</p>
+                <p><i class="fas fa-solid fa-phone"></i> 4073102956</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/genesisecogroup/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100068731725641&mibextid=LQQJ4d"><i class="fa-brands fa-square-facebook"></i></a>
+                </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+                <span id="msg"></span>
+        
+        </div>
+    </div>
+</div>
+       
+
+<script>
+
+var sidemenu = document.getElementById("sidemenu");
+
+function openmenu(){
+    sidemenu.style.right = "0";
+}
+function closemenu(){
+    sidemenu.style.right = "-200px";
+}    
+</script>
+    
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz0i5sdxWbdWjfU6JZv8iSX4TuZOWy3QRGUaBSx0ySvgtaFxuiYEQCg41rrRTHJ2dSwxg/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },1000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+
+    </body>
+</html>
